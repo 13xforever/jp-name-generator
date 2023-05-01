@@ -1,0 +1,3 @@
+src/**/*.min.*
+src/**/*.js
+enamdict*
