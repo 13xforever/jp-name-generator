@@ -3,7 +3,8 @@
         xmlns:vm="using:JpNameGenerator.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        mc:Ignorable="d" d:DesignWidth="300" d:DesignHeight="150"
+        Width="300" Height="150"
         x:Class="JpNameGenerator.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
         Icon="/Assets/avalonia-logo.ico"
@@ -12,9 +13,21 @@
     <Design.DataContext>
         <!-- This only sets the DataContext for the previewer in an IDE,
              to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
-        <vm:MainWindowViewModel/>
+        <vm:MainWindowViewModel
+            GeneratorType="Person"
+            GeneratedName="Asakura Asuka"
+        />
+        
     </Design.DataContext>
 
-    <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-
+    <StackPanel>
+        <ComboBox SelectedIndex="{Binding GeneratorType}">
+            <ComboBoxItem>Person</ComboBoxItem>
+            <ComboBoxItem>Male</ComboBoxItem>
+            <ComboBoxItem>Female</ComboBoxItem>
+        </ComboBox>
+        <TextBox Text="{Binding GeneratedNameKanji}"/>
+        <TextBox Text="{Binding GeneratedName}"/>
+        <Button Command="{Binding GenerateNameCommand}">Generate</Button>
+    </StackPanel>
 </Window>
