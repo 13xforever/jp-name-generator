@@ -1,3 +1,6 @@
 src/**/*.min.*
 src/**/*.js
 enamdict*
+.idea/
+bin/
+obj/

@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JpNameGenerator", "JpNameGenerator\JpNameGenerator.csproj", "{6F85FCBA-E031-4EBE-9589-18A4CA74634D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Enamdict", "Enamdict\Enamdict.csproj", "{61C6412C-FEE3-46AF-9728-16E7B24F7912}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{ADB509FF-F1AA-4508-B807-F8E9C57E80C9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6F85FCBA-E031-4EBE-9589-18A4CA74634D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F85FCBA-E031-4EBE-9589-18A4CA74634D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F85FCBA-E031-4EBE-9589-18A4CA74634D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F85FCBA-E031-4EBE-9589-18A4CA74634D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61C6412C-FEE3-46AF-9728-16E7B24F7912}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61C6412C-FEE3-46AF-9728-16E7B24F7912}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61C6412C-FEE3-46AF-9728-16E7B24F7912}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61C6412C-FEE3-46AF-9728-16E7B24F7912}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADB509FF-F1AA-4508-B807-F8E9C57E80C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADB509FF-F1AA-4508-B807-F8E9C57E80C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADB509FF-F1AA-4508-B807-F8E9C57E80C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADB509FF-F1AA-4508-B807-F8E9C57E80C9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
