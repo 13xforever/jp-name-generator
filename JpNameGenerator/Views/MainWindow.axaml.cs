@@ -17,6 +17,6 @@ public partial class MainWindow : Window
         if (DataContext is not MainWindowViewModel vm)
             return;
 
-        vm.GenerateNameCommand.Execute(null);
+        vm.GenerateNameInBgAsync();
     }
 }

@@ -11,6 +11,7 @@ namespace JpNameGenerator.ViewModels;
 
 public partial class MainWindowViewModel : ViewModelBase
 {
+    [ObservableProperty] private bool isReady;
     [ObservableProperty] private int generatorType = 2;
     [ObservableProperty] private string generatedName = "";
     [ObservableProperty] private string generatedNameKanji = "";
@@ -21,6 +22,15 @@ public partial class MainWindowViewModel : ViewModelBase
 
     partial void OnGeneratorTypeChanged(int value) => GenerateNameCommand.Execute(null);
 
+    internal async void GenerateNameInBgAsync()
+    {
+        try
+        {
+            await GenerateNameCommand.ExecuteAsync(null).ConfigureAwait(false);
+            IsReady = true;
+        } catch { }
+    }
+    
     [RelayCommand]
     private async Task GenerateName()
     {

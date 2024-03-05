@@ -55,13 +55,14 @@
             </ExperimentalAcrylicBorder.Material>
         </ExperimentalAcrylicBorder>
 
-        <StackPanel Margin="12" Name="MainContainer">
+        <StackPanel Margin="12">
             <!-- title -->
             <TextBlock Padding="0" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="12"
                        IsHitTestVisible="False"
                        Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}, Path=Title}"/>
 
-            <StackPanel Margin="0 12 0 0" HorizontalAlignment="Stretch" VerticalAlignment="Top">
+            <StackPanel Margin="0 12 0 0" IsVisible="{Binding IsReady}"
+                        HorizontalAlignment="Stretch" VerticalAlignment="Top">
                 <ComboBox SelectedIndex="{Binding GeneratorType}">
                     <ComboBoxItem>Person</ComboBoxItem>
                     <ComboBoxItem>Male</ComboBoxItem>
@@ -71,6 +72,10 @@
                 <TextBox Margin="0 8 0 0" Text="{Binding GeneratedName}" IsReadOnly="True"/>
                 <Button Margin="0 8 0 0" HorizontalAlignment="Right"
                         Command="{Binding GenerateNameCommand}">Generate</Button>
+            </StackPanel>
+            <StackPanel Margin="0 66 0 0" IsVisible="{Binding !IsReady}"
+                        HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Classes="TitleTextBlockStyle">Loading…</TextBlock>
             </StackPanel>
         </StackPanel>
     </Panel>
