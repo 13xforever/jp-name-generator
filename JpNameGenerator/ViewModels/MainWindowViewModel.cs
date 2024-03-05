@@ -11,7 +11,7 @@ namespace JpNameGenerator.ViewModels;
 
 public partial class MainWindowViewModel : ViewModelBase
 {
-    [ObservableProperty] private int generatorType = 0;
+    [ObservableProperty] private int generatorType = 2;
     [ObservableProperty] private string generatedName = "";
     [ObservableProperty] private string generatedNameKanji = "";
 
