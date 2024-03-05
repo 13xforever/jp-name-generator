@@ -1,6 +1,7 @@
 src/**/*.min.*
 src/**/*.js
-enamdict*
+enamdictu
+enamdictu.gz
 .idea/
 bin/
 obj/
