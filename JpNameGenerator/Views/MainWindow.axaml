@@ -3,12 +3,23 @@
         xmlns:vm="using:JpNameGenerator.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:JpNameGenerator.Converters;assembly=JpNameGenerator"
         mc:Ignorable="d" d:DesignWidth="300" d:DesignHeight="150"
         Width="300" Height="150"
         x:Class="JpNameGenerator.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
+
+        ExtendClientAreaToDecorationsHint="True"
+        ExtendClientAreaChromeHints="PreferSystemChrome"
+        SystemDecorations="Full"
+        
+        Background="Transparent"
+        TransparencyLevelHint="Mica, AcrylicBlur, Blur"
+        RenderOptions.TextRenderingMode="Antialias"
+
         Icon="/Assets/avalonia-logo.ico"
-        Title="JpNameGenerator">
+        Title="Japanese Name Generator"
+        >
 
     <Design.DataContext>
         <!-- This only sets the DataContext for the previewer in an IDE,
@@ -17,17 +28,41 @@
             GeneratorType="Person"
             GeneratedName="Asakura Asuka"
         />
-        
     </Design.DataContext>
 
-    <StackPanel>
-        <ComboBox SelectedIndex="{Binding GeneratorType}">
-            <ComboBoxItem>Person</ComboBoxItem>
-            <ComboBoxItem>Male</ComboBoxItem>
-            <ComboBoxItem>Female</ComboBoxItem>
-        </ComboBox>
-        <TextBox Text="{Binding GeneratedNameKanji}"/>
-        <TextBox Text="{Binding GeneratedName}"/>
-        <Button Command="{Binding GenerateNameCommand}">Generate</Button>
-    </StackPanel>
+    <Window.Resources>
+        <local:ColorConverter x:Key="ColorConverter"/>
+    </Window.Resources>
+
+    <Panel>
+        <Border IsHitTestVisible="False" Background="{Binding TintColor}"
+                IsVisible="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}, Path=!IsActive}"/>
+        <ExperimentalAcrylicBorder IsHitTestVisible="False">
+            <ExperimentalAcrylicBorder.IsVisible>
+                <MultiBinding Converter="{x:Static BoolConverters.And}">
+                    <Binding  Path="!MicaEnabled"/>
+                    <Binding  Path="AcrylicEnabled"/>
+                </MultiBinding>
+            </ExperimentalAcrylicBorder.IsVisible>
+            <ExperimentalAcrylicBorder.Material>
+                <ExperimentalAcrylicMaterial
+                    BackgroundSource="Digger"
+                    TintColor="{Binding TintColor, Converter={StaticResource ColorConverter}}"
+                    TintOpacity="{Binding TintOpacity}"
+                    MaterialOpacity="0.5"
+                />
+            </ExperimentalAcrylicBorder.Material>
+        </ExperimentalAcrylicBorder>
+
+        <StackPanel Margin="12">
+            <ComboBox SelectedIndex="{Binding GeneratorType}">
+                <ComboBoxItem>Person</ComboBoxItem>
+                <ComboBoxItem>Male</ComboBoxItem>
+                <ComboBoxItem>Female</ComboBoxItem>
+            </ComboBox>
+            <TextBox Text="{Binding GeneratedNameKanji}"/>
+            <TextBox Text="{Binding GeneratedName}"/>
+            <Button Command="{Binding GenerateNameCommand}">Generate</Button>
+        </StackPanel>
+    </Panel>
 </Window>

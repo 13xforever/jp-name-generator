@@ -8,7 +8,12 @@
     <Application.DataTemplates>
         <local:ViewLocator/>
     </Application.DataTemplates>
-  
+      
+    <Application.Resources>
+        <FontFamily x:Key="FontAwesome">avares://JpNameGenerator/Assets/Fonts#Font Awesome 6 Free</FontFamily>
+        <FontFamily x:Key="FontAwesomeSolid">avares://JpNameGenerator/Assets/Fonts#Font Awesome 6 Free Solid</FontFamily>
+    </Application.Resources>
+ 
     <Application.Styles>
         <FluentTheme />
         <StyleInclude Source="Styles/Fluent2Styles.axaml"/>
