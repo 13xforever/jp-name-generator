@@ -16,7 +16,7 @@ public partial class MainWindowViewModel : ViewModelBase
     [ObservableProperty] private string generatedName = "";
     [ObservableProperty] private string generatedNameKanji = "";
 
-    private static readonly ConcurrentDictionary<NameCategory, List<Entry>> NameListCache = new();
+    private static readonly ConcurrentDictionary<NameCategory, List<Entry>> NameListCache = [];
     private static readonly Random Rng = new();
     private static readonly Entry EmptyEntry = new("", "", NameCategory.Unknown, "");
 
@@ -52,7 +52,7 @@ public partial class MainWindowViewModel : ViewModelBase
         {
             var (_, list) = await Provider.ParseAsync().ConfigureAwait(false);
             NameListCache[key] = result = list.Where(
-                e => (e.Categories & key) != NameCategory.Unknown
+                e => (e.Categories & key) is not NameCategory.Unknown
             ).ToList();
         }
         return result;

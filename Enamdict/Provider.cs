@@ -22,7 +22,7 @@ public static class Provider
     {
         DefaultRequestHeaders =
         {
-            UserAgent = { new ProductInfoHeaderValue("JpNameGenerator", "1.0") }
+            UserAgent = { new("JpNameGenerator", "1.1.1") }
         }
     };
 
